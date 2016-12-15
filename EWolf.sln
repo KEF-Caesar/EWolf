@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWolf_Input", "EWolf_Input\EWolf_Input.csproj", "{035505C7-9C21-4E5E-A5D3-BE9063D5FDF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWolf_Output", "EWolf_Output\EWolf_Output.csproj", "{0BE5ED99-DC0F-42BD-B4B9-9AAAE83DBBC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWolf_GUI", "EWolf_GUI\EWolf_GUI.csproj", "{F20FBE86-EFF4-4549-B6A4-9FC76E5EAB5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWolf_Test", "EWolf_Test\EWolf_Test.csproj", "{DE60F8D4-5B31-4038-A3B6-8A638F9AB1BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWolf_Data", "EWolf_Data\EWolf_Data.csproj", "{678606BD-FE86-477F-AE2C-AE5FB295BCF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWolf_Trading_Algorithms", "EWolf_Trading_Algorithms\EWolf_Trading_Algorithms.csproj", "{ACBD734B-9929-4ED7-B669-AEEF59044CA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{035505C7-9C21-4E5E-A5D3-BE9063D5FDF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035505C7-9C21-4E5E-A5D3-BE9063D5FDF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035505C7-9C21-4E5E-A5D3-BE9063D5FDF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035505C7-9C21-4E5E-A5D3-BE9063D5FDF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE5ED99-DC0F-42BD-B4B9-9AAAE83DBBC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE5ED99-DC0F-42BD-B4B9-9AAAE83DBBC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE5ED99-DC0F-42BD-B4B9-9AAAE83DBBC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE5ED99-DC0F-42BD-B4B9-9AAAE83DBBC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F20FBE86-EFF4-4549-B6A4-9FC76E5EAB5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20FBE86-EFF4-4549-B6A4-9FC76E5EAB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20FBE86-EFF4-4549-B6A4-9FC76E5EAB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20FBE86-EFF4-4549-B6A4-9FC76E5EAB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE60F8D4-5B31-4038-A3B6-8A638F9AB1BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE60F8D4-5B31-4038-A3B6-8A638F9AB1BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE60F8D4-5B31-4038-A3B6-8A638F9AB1BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE60F8D4-5B31-4038-A3B6-8A638F9AB1BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{678606BD-FE86-477F-AE2C-AE5FB295BCF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{678606BD-FE86-477F-AE2C-AE5FB295BCF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{678606BD-FE86-477F-AE2C-AE5FB295BCF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{678606BD-FE86-477F-AE2C-AE5FB295BCF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACBD734B-9929-4ED7-B669-AEEF59044CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBD734B-9929-4ED7-B669-AEEF59044CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBD734B-9929-4ED7-B669-AEEF59044CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBD734B-9929-4ED7-B669-AEEF59044CA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
