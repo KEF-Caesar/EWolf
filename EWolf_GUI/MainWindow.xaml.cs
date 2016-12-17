@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using EWolf_Input;
 namespace EWolf_GUI
 {
 	/// <summary>
@@ -21,8 +21,10 @@ namespace EWolf_GUI
 	public partial class MainWindow : Window
 	{
 		public MainWindow()
-		{
-			InitializeComponent();
-		}
+        {   
+            InitializeComponent();
+          
+
+        }
 	}
 }
