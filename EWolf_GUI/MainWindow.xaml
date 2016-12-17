@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EWolf_GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Deals" Height="350" Width="525">
+    <Grid Margin="5,5,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="listBoxDeals">
+            <ListBoxItem/>
+        </ListBox>
+        <Button x:Name="GetInfo" Grid.Row ="1" HorizontalAlignment="Right" Content="Get more information" Width="250" Height="25" />
     </Grid>
 </Window>
