@@ -7,22 +7,73 @@ using System.Threading;
 using System.Timers;
 using EWolf_Input;
 using EWolf_Trading_Algorithms;
+
 namespace EWolf_Test
 {
+	class Magic
+	{
+		Main F;
+		double Number_of_Deals;
+		double Total_PoL;
+
+		public void Print_Deal(string _Ticker, Deal _Deal)
+		{
+			DateTime _Open = _Deal.Orders[0].Date_Time;
+			DateTime _Close = _Deal.Orders[1].Date_Time;
+			double Price_Open = 0;
+			double Price_Close = 0;
+			int N = F.D.Companies[_Ticker].Candles["M1"].Count;
+			List<Candle> C = F.D.Companies[_Ticker].Candles["M1"].ToList();
+			for (int i = 0; i < N; i++)
+			{
+				if (C[i].Date_Time == _Open)
+					Price_Open = C[i].Close;
+				if (C[i].Date_Time == _Close)
+					Price_Close = C[i].Close;
+			}
+			//Console.WriteLine("Deal:");
+			double PoL = Price_Close / Price_Open;
+			//Console.WriteLine(PoL);
+			string res = _Ticker + " " + Price_Open.ToString() + " " + Price_Close.ToString() + " " + PoL.ToString();
+			//Console.WriteLine(res);
+			Number_of_Deals += 1.0;
+			Total_PoL += PoL;
+		}
+
+		public void Run()
+		{
+			Number_of_Deals = 0;
+			Total_PoL = 0;
+			Offline_Test Off_Test = new Offline_Test();
+			F = new Main();
+			F.Deal_Event += Print_Deal;
+			for (int i = 1; i <= 1000; i++)
+			{
+				if (i % 50 == 0)
+					Console.WriteLine(i);
+				//Console.ReadLine();
+				Off_Test.Update();
+				F.Iteration();
+			}
+			Console.WriteLine("Number: " + Number_of_Deals);
+			Console.WriteLine("PoL: " + Total_PoL / Number_of_Deals);
+			Console.ReadLine();
+		}
+	}
+
 	class Program
 	{
 		static void Main(string[] args)
 		{
-            // Пример использования метода для получения свечей и их записи в файл
+			// Пример использования метода для получения свечей и их записи в файл
 			/*
                 Repository_For_Candles repo; 
                 IReadOnlyList<string> list = new List<string> { "GAZP","SBER", "LKOH", "MGNT", "NVTK",
                "GMKN", "SNGS", "SNGSP", "ROSN", "VTBR", "TRNFP","TATN", "ALRS", "MTSS", "MOEX", "CHMF" };
                 repo = new Repository_For_Candles(list, "M1", 5);
 			*/
-			Main Fuck = new Main();
-			Fuck.Iteration();
-			Console.ReadLine();
+			Magic M = new Magic();
+			M.Run();
 		}
 	}
 }

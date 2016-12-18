@@ -7,7 +7,7 @@ namespace EWolf_Trading_Algorithms
 	public class Main
 	{
 		private Dictionary<string, Stock> Stocks;
-		private Data D;
+		public Data D;
 		public delegate void Deal_Delegate(string _Ticker, Deal _Deal);
 		public event Deal_Delegate Deal_Event;
 
@@ -36,7 +36,7 @@ namespace EWolf_Trading_Algorithms
 					Deal New_Deal = new Deal();
 					New_Deal.High = Price;
 					New_Deal.Low = Price;
-					Console.WriteLine(T + " " + Price.ToString() + " " + Low_Price.ToString() + " " + High_Price.ToString());
+					//Console.WriteLine(T + " " + Price.ToString() + " " + Low_Price.ToString() + " " + High_Price.ToString());
 					if (Price <= Low_Price * (1.0 + Magic_Const))
 					{
 						New_Deal.Orders.Clear();
@@ -103,11 +103,13 @@ namespace EWolf_Trading_Algorithms
 			D.Update();
 			Algo_Open_1();
 			Algo_Close_1();
+			/*
 			for (int i = 0; i < D.Tickers.Count; i++)
 			{
 				string s = D.Tickers[i] + " " + Stocks[D.Tickers[i]].Current_Volume.ToString();
 				Console.WriteLine(s);
 			}
+			*/
 		}
 
 		public Main()
