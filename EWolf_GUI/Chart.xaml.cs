@@ -1,17 +1,10 @@
-﻿using System;
+﻿using System.Windows;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using EWolf_Data;
 using EWolf_Trading_Algorithms;
+using System;
 
 namespace EWolf_GUI
 {
@@ -22,12 +15,74 @@ namespace EWolf_GUI
     {
         public Chart(Main main, string ticker, Deal deal)
         {
-            InitializeComponent();
-        }
+			List<Candle> candlestodraw = new List<Candle> { };
+			DateTime datetime = deal.Orders[deal.Orders.Count - 1].Date_Time;
+			List<Candle> list = main.D.Companies[ticker].Candles["M1"].ToList();
+			int First = 0;
+			int Last = 0;
+			for (int i = 0; i < list.Count; i++)
+			{
+				if (list[i].Date_Time == datetime)
+				{
+					Last = i;
+					First = Last - 50;
+				}
+			}
+			for (int i = First; i <= Last; i++)
+			{
+				Candle candle = list[i];
+				candlestodraw.Add(candle);
+			}
+			double min = candlestodraw[0].Low;
+			double max = candlestodraw[0].High;
+			int N = candlestodraw.Count;
+			InitializeComponent();
+			System.Windows.Forms.DataVisualization.Charting.Chart chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			chartarea.Child = chart;
 
-        private void closechart_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-    }
+			chart.ChartAreas.Add("Main");
+			chart.Series.Add("Candles");
+			chart.Series.FindByName("Candles").ChartArea = "Main";
+			chart.Series.FindByName("Candles").ChartType = SeriesChartType.Candlestick;
+			chart.Series.FindByName("Candles").YAxisType = AxisType.Secondary;
+			for (int i = 1; i < N; i++)
+			{
+				if (min < candlestodraw[i].Low)
+				{
+					min = candlestodraw[i].Low;
+				}
+				if (max > candlestodraw[i].High)
+				{
+					max = candlestodraw[i].High;
+				}
+
+			}
+			min = min - 5;
+			max = max + 5;
+			chart.ChartAreas.FindByName("Main").AxisY2.Maximum = max;
+			chart.ChartAreas.FindByName("Main").AxisY2.Minimum = min;
+			for (int i = 0; i < N; i++)
+			{
+				chart.Series.FindByName("Candles").Points.AddXY(i, 157.72, 158.41, 158.35, 157.94);
+				chart.Series.FindByName("Candles").Points[chart.Series.FindByName("Candles").Points.Count - 1].AxisLabel = candlestodraw[i].Date_Time.ToString();
+				if (candlestodraw[i].Close > candlestodraw[i].Open)
+				{
+					chart.Series.FindByName("Candles").Points[chart.Series.FindByName("Candles").Points.Count - 1].Color = System.Drawing.Color.Green;
+				}
+				else
+				{
+					chart.Series.FindByName("Candles").Points[chart.Series.FindByName("Candles").Points.Count - 1].Color = System.Drawing.Color.Tomato;
+				}
+				chart.Series.FindByName("Candles").Points[chart.Series.FindByName("Candles").Points.Count - 1].BorderWidth = 5;
+
+			}
+			chartarea.Child.Show();
+
+		}
+
+		private void closechart_Click(object sender, RoutedEventArgs e)
+		{
+			Close();
+		}
+	}
 }
