@@ -47,23 +47,23 @@ namespace EWolf_GUI
 			chart.Series.FindByName("Candles").YAxisType = AxisType.Secondary;
 			for (int i = 1; i < N; i++)
 			{
-				if (min < candlestodraw[i].Low)
+				if (min > candlestodraw[i].Low)
 				{
 					min = candlestodraw[i].Low;
 				}
-				if (max > candlestodraw[i].High)
+				if (max < candlestodraw[i].High)
 				{
 					max = candlestodraw[i].High;
 				}
 
 			}
-			min = min - 5;
-			max = max + 5;
+			min = min - 3;
+			max = max + 3;
 			chart.ChartAreas.FindByName("Main").AxisY2.Maximum = max;
 			chart.ChartAreas.FindByName("Main").AxisY2.Minimum = min;
 			for (int i = 0; i < N; i++)
 			{
-				chart.Series.FindByName("Candles").Points.AddXY(i, 157.72, 158.41, 158.35, 157.94);
+				chart.Series.FindByName("Candles").Points.AddXY(i, candlestodraw[i].Low, candlestodraw[i].High, candlestodraw[i].Open, candlestodraw[i].Close);
 				chart.Series.FindByName("Candles").Points[chart.Series.FindByName("Candles").Points.Count - 1].AxisLabel = candlestodraw[i].Date_Time.ToString();
 				if (candlestodraw[i].Close > candlestodraw[i].Open)
 				{
