@@ -51,6 +51,10 @@
       <Project>{678606bd-fe86-477f-ae2c-ae5fb295bcf5}</Project>
       <Name>EWolf_Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EWolf_Input\EWolf_Input.csproj">
+      <Project>{035505c7-9c21-4e5e-a5d3-be9063d5fdf7}</Project>
+      <Name>EWolf_Input</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
