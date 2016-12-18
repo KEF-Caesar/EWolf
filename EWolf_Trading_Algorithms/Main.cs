@@ -1,10 +1,6 @@
 ﻿using EWolf_Data;
-using EWolf_Input;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EWolf_Trading_Algorithms
 {
@@ -12,6 +8,8 @@ namespace EWolf_Trading_Algorithms
 	{
 		private Dictionary<string, Stock> Stocks;
 		private Data D;
+		public delegate void Deal_Delegate(string _Ticker, Deal _Deal);
+		public event Deal_Delegate Deal_Event;
 
 		void Algo_Open_1()
 		{
@@ -83,6 +81,7 @@ namespace EWolf_Trading_Algorithms
 						{
 							Current_Deal.Orders.Add(new Order(Last_Candle.Date_Time, -Stocks[T].Current_Volume));
 							Stocks[T].Current_Volume = 0;
+							Deal_Event.Invoke(T, Current_Deal);
 						}
 					}
 					if (Stocks[T].Current_Volume < 0)
@@ -91,6 +90,7 @@ namespace EWolf_Trading_Algorithms
 						{
 							Current_Deal.Orders.Add(new Order(Last_Candle.Date_Time, -Stocks[T].Current_Volume));
 							Stocks[T].Current_Volume = 0;
+							Deal_Event.Invoke(T, Current_Deal);
 						}
 					}
 				}

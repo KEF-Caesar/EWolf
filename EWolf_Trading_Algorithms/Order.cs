@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EWolf_Trading_Algorithms
 {
-	class Order
+	public class Order
 	{
 		private DateTime _Date_Time_;
 		public DateTime Date_Time
