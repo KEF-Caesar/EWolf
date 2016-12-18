@@ -29,8 +29,15 @@ namespace EWolf_GUI
             current_deal = current;
             current_main = main;
             current_ticker = ticker;
-            listBox1.Items.Add(current.Headers);
-            listBox2.Items.Add(current.Values);
+            foreach (var el in current.Headers)
+            {
+                listBox1.Items.Add(new Result { Title = el });
+            }
+            foreach (var el in current.Values)
+            {
+                listBox2.Items.Add(new Result { Title = el });
+            }
+            
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
