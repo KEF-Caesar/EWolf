@@ -49,7 +49,7 @@ namespace EWolf_Test
 			Total_Time = 0;
 			Offline_Test Off_Test = new Offline_Test();
 			F.Deal_Event += Print_Deal;
-			for (int i = 1; i <= 10; i++)
+			for (int i = 1; i <= 20; i++)
 			{
 				/*
 				if (i % 50 == 0)

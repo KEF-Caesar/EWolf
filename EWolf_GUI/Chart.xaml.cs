@@ -16,17 +16,25 @@ namespace EWolf_GUI
         public Chart(Main main, string ticker, Deal deal)
         {
 			List<Candle> candlestodraw = new List<Candle> { };
-			DateTime datetime = deal.Orders[deal.Orders.Count - 1].Date_Time;
+			DateTime datetime_close = deal.Orders[deal.Orders.Count - 1].Date_Time;
+			DateTime datetime_open = deal.Orders[0].Date_Time;
 			List<Candle> list = main.D.Companies[ticker].Candles["M1"].ToList();
 			int First = 0;
 			int Last = 0;
 			for (int i = 0; i < list.Count; i++)
 			{
-				if (list[i].Date_Time == datetime)
+				if (list[i].Date_Time == datetime_close)
 				{
-					Last = i;
-					First = Last - 50;
+					Last = i;					
 				}
+				if (list[i].Date_Time == datetime_open)
+				{
+					First = i;
+				}
+			}
+			if (Last - First + 1 <=30)
+			{
+				First = Last - 29;
 			}
 			for (int i = First; i <= Last; i++)
 			{
@@ -57,8 +65,8 @@ namespace EWolf_GUI
 				}
 
 			}
-			min = min - 3;
-			max = max + 3;
+			min = min * 0.997;
+			max = max * 1.003;
 			chart.ChartAreas.FindByName("Main").AxisY2.Maximum = max;
 			chart.ChartAreas.FindByName("Main").AxisY2.Minimum = min;
 			for (int i = 0; i < N; i++)
