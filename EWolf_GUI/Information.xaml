@@ -19,7 +19,7 @@
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
             <Button x:Name="Close" HorizontalAlignment="Right" Content="Close" Margin="0 15 15 0" Width="70" Height="22" Click="Close_Click"/>
         </StackPanel>
-        <ListBox Grid.Column="1" Grid.Row="0" Margin="5">
+        <ListBox x:Name="listBox1" Grid.Column="1" Grid.Row="0" Margin="5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                 <StackPanel Orientation="Vertical">
@@ -28,7 +28,7 @@
             </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox Grid.Column="2" Grid.Row="0" Margin="5">
+        <ListBox x:Name="listBox2" Grid.Column="2" Grid.Row="0" Margin="5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -39,16 +39,11 @@
         </ListBox>
         <Grid Grid.Column="0" Margin="5">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="100"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontStyle="Italic" Width="150" Height="20" Margin="0,2,0,0">Opening of the deal</TextBlock>
-            
-            <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontStyle="Italic" Width="150" Height="20">Closing of the deal</TextBlock>
-            
-            <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontStyle="Italic" Width="150" Height="20">Trend after closing</TextBlock>
-            
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" FontStyle="Italic" Width="160" Height="30" Margin="20,60,0,0">Details of the deal</TextBlock>
+            <Button x:Name="buttonChart" Grid.Row="1" Content="Show chart" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20" Height="50" Width="200" Click="buttonChart_Click"/>
         </Grid>
     </Grid>
 </Window>

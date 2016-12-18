@@ -15,25 +15,18 @@ using System.Windows.Shapes;
 namespace EWolf_GUI
 {
     /// <summary>
-    /// Логика взаимодействия для Information.xaml
+    /// Логика взаимодействия для Chart.xaml
     /// </summary>
-    public partial class Information : Window
+    public partial class Chart : Window
     {
-        public Information(string str)
-        {               
+        public Chart()
+        {
             InitializeComponent();
         }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
+        private void closechart_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
-        private void buttonChart_Click(object sender, RoutedEventArgs e)
-        {
-            var chart = new Chart();
-            chart.Show();
-        }
-
     }
 }

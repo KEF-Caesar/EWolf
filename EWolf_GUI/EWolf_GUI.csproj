@@ -37,6 +37,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -46,15 +50,21 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Chart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Information.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -66,6 +76,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Chart.xaml.cs">
+      <DependentUpon>Chart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Information.xaml.cs">
       <DependentUpon>Information.xaml</DependentUpon>
@@ -103,9 +116,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EWolf_Data\EWolf_Data.csproj">
+      <Project>{678606bd-fe86-477f-ae2c-ae5fb295bcf5}</Project>
+      <Name>EWolf_Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EWolf_Input\EWolf_Input.csproj">
       <Project>{035505c7-9c21-4e5e-a5d3-be9063d5fdf7}</Project>
       <Name>EWolf_Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EWolf_Trading_Algorithms\EWolf_Trading_Algorithms.csproj">
+      <Project>{acbd734b-9929-4ed7-b669-aeef59044ca9}</Project>
+      <Name>EWolf_Trading_Algorithms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
