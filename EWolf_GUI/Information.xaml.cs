@@ -19,9 +19,17 @@ namespace EWolf_GUI
     /// </summary>
     public partial class Information : Window
     {
-        public Information()
-        {
+        //   public MainWindow mw;       
+        private string str;
+
+        public Information(string str)
+        {               
             InitializeComponent();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

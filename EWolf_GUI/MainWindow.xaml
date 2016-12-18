@@ -8,12 +8,21 @@
         Title="Deals" Height="350" Width="525">
     <Grid Margin="5,5,5,5">
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="listBoxDeals">
-            <ListBoxItem/>
+        <Label Content="List of deals" FontWeight="Bold" Margin="25 0 0 0" FontSize="14"/>
+        <ListBox x:Name="listBoxDeals" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock FontSize="14" Text="{Binding Title}"/>
+                        <TextBlock FontSize="12" Text="{Binding Description}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="GetInfo" Grid.Row ="1" HorizontalAlignment="Right" Content="Get more information" Width="250" Height="25" />
+        <Button x:Name="GetInfo" IsEnabled="{Binding ElementName=listBoxDeals, Path=SelectedItems.Count}"  Grid.Row ="2" HorizontalAlignment="Right" Content="Get more information" Width="250" Height="25" Click="GetInfo_Click" />
     </Grid>
 </Window>
