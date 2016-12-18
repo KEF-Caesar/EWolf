@@ -1,5 +1,4 @@
 ﻿using EWolf_Data;
-using System;
 using System.Collections.Generic;
 
 namespace EWolf_Trading_Algorithms
@@ -36,7 +35,7 @@ namespace EWolf_Trading_Algorithms
 					Deal New_Deal = new Deal();
 					New_Deal.High = Price;
 					New_Deal.Low = Price;
-					//Console.WriteLine(T + " " + Price.ToString() + " " + Low_Price.ToString() + " " + High_Price.ToString());
+					New_Deal.Open = Price;
 					if (Price <= Low_Price * (1.0 + Magic_Const))
 					{
 						New_Deal.Orders.Clear();
@@ -54,6 +53,24 @@ namespace EWolf_Trading_Algorithms
 					}
 				}
 			}
+		}
+
+		void Push_Info_to_Deal(Deal CD) // CD - Current Deal 
+		{
+			CD.Profit_or_Loss = CD.Close / CD.Open - 1.0;
+			CD.Headers.Add("Date & Time (Open)");
+			CD.Values.Add(CD.Orders[0].Date_Time.ToString());
+			CD.Headers.Add("Date & Time (Close)");
+			CD.Values.Add(CD.Orders[1].Date_Time.ToString());
+			CD.Headers.Add("Time (Minutes)");
+			CD.Values.Add((CD.Orders[1].Date_Time - CD.Orders[0].Date_Time).TotalMinutes.ToString());
+			CD.Headers.Add("Price (Open)");
+			CD.Values.Add(CD.Open.ToString());
+			CD.Headers.Add("Price (Close)");
+			CD.Values.Add(CD.Close.ToString());
+			CD.Headers.Add("Profit or Loss");
+			CD.Values.Add(CD.Profit_or_Loss.ToString());
+			return;
 		}
 
 		void Algo_Close_1()
@@ -80,6 +97,8 @@ namespace EWolf_Trading_Algorithms
 						if (Price <= Current_Deal.High * (1.0 - Magic_Const))
 						{
 							Current_Deal.Orders.Add(new Order(Last_Candle.Date_Time, -Stocks[T].Current_Volume));
+							Current_Deal.Close = Price;
+							Push_Info_to_Deal(Current_Deal);
 							Stocks[T].Current_Volume = 0;
 							Deal_Event.Invoke(T, Current_Deal);
 						}
@@ -89,6 +108,8 @@ namespace EWolf_Trading_Algorithms
 						if (Price >= Current_Deal.Low * (1.0 + Magic_Const))
 						{
 							Current_Deal.Orders.Add(new Order(Last_Candle.Date_Time, -Stocks[T].Current_Volume));
+							Current_Deal.Close = Price;
+							Push_Info_to_Deal(Current_Deal);
 							Stocks[T].Current_Volume = 0;
 							Deal_Event.Invoke(T, Current_Deal);
 						}
@@ -103,13 +124,6 @@ namespace EWolf_Trading_Algorithms
 			D.Update();
 			Algo_Open_1();
 			Algo_Close_1();
-			/*
-			for (int i = 0; i < D.Tickers.Count; i++)
-			{
-				string s = D.Tickers[i] + " " + Stocks[D.Tickers[i]].Current_Volume.ToString();
-				Console.WriteLine(s);
-			}
-			*/
 		}
 
 		public Main()
