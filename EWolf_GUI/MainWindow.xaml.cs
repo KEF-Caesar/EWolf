@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EWolf_Trading_Algorithms;
+using EWolf_Test;
 
 namespace EWolf_GUI
 {
@@ -40,8 +41,12 @@ namespace EWolf_GUI
 		public MainWindow()
 		{            
             InitializeComponent();
-            main = new Main();
-            main.Deal_Event += Deals;
+			Magic M = new Magic();
+			M.F.Deal_Event += Deals;
+			main = M.F;
+			M.Run();
+			//main = new Main();
+            //main.Deal_Event += Deals;
         }
                
         private void GetInfo_Click(object sender, RoutedEventArgs e)

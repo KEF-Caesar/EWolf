@@ -124,6 +124,10 @@
       <Project>{035505c7-9c21-4e5e-a5d3-be9063d5fdf7}</Project>
       <Name>EWolf_Input</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EWolf_Test\EWolf_Test.csproj">
+      <Project>{de60f8d4-5b31-4038-a3b6-8a638f9ab1bb}</Project>
+      <Name>EWolf_Test</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EWolf_Trading_Algorithms\EWolf_Trading_Algorithms.csproj">
       <Project>{acbd734b-9929-4ed7-b669-aeef59044ca9}</Project>
       <Name>EWolf_Trading_Algorithms</Name>

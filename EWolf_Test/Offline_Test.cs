@@ -22,7 +22,7 @@ namespace EWolf_Test
 				string T = Tickers[i];
 				string Name = T + " M1.txt";
 				List<string> Arr = new List<string> { };
-				StreamReader sr = new StreamReader("..\\..\\Original_Data\\" + Name);
+				StreamReader sr = new StreamReader("..\\..\\..\\EWolf_Test\\Original_Data\\" + Name);
 				for (int j = 1; j <= N; j++)
 					Arr.Add(sr.ReadLine());
 				sr.Close();

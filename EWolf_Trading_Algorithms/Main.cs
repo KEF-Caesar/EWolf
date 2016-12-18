@@ -13,7 +13,7 @@ namespace EWolf_Trading_Algorithms
 
 		void Algo_Open_1()
 		{
-			const double Magic_Const = 0.003;
+			const double Magic_Const = 0.002;
 			const int Magic_Count = 60;
 			for (int i = 0; i < D.Tickers.Count; i++)
 			{
@@ -58,7 +58,7 @@ namespace EWolf_Trading_Algorithms
 
 		void Algo_Close_1()
 		{
-			const double Magic_Const = 0.005;
+			const double Magic_Const = 0.001;
 			for (int i = 0; i < D.Tickers.Count; i++)
 			{
 				string T = D.Tickers[i];

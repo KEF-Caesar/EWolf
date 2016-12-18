@@ -10,11 +10,12 @@ using EWolf_Trading_Algorithms;
 
 namespace EWolf_Test
 {
-	class Magic
+	public class Magic
 	{
-		Main F;
+		public Main F;
 		double Number_of_Deals;
 		double Total_PoL;
+		double Total_Time;
 
 		public void Print_Deal(string _Ticker, Deal _Deal)
 		{
@@ -38,26 +39,37 @@ namespace EWolf_Test
 			//Console.WriteLine(res);
 			Number_of_Deals += 1.0;
 			Total_PoL += PoL;
+			Total_Time += (_Close - _Open).TotalMinutes;
 		}
 
 		public void Run()
 		{
 			Number_of_Deals = 0;
 			Total_PoL = 0;
+			Total_Time = 0;
 			Offline_Test Off_Test = new Offline_Test();
-			F = new Main();
 			F.Deal_Event += Print_Deal;
-			for (int i = 1; i <= 1000; i++)
+			for (int i = 1; i <= 10; i++)
 			{
+				/*
 				if (i % 50 == 0)
 					Console.WriteLine(i);
+				*/
 				//Console.ReadLine();
 				Off_Test.Update();
 				F.Iteration();
 			}
+			/*
 			Console.WriteLine("Number: " + Number_of_Deals);
 			Console.WriteLine("PoL: " + Total_PoL / Number_of_Deals);
+			Console.WriteLine("Time: " + Total_Time / Number_of_Deals);
 			Console.ReadLine();
+			*/
+		}
+
+		public Magic()
+		{
+			F = new Main();
 		}
 	}
 
