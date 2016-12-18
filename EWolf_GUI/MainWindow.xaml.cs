@@ -33,7 +33,7 @@ namespace EWolf_GUI
         List<string> tickers = new List<string> { };
         public void Deals(string ticker, Deal current_deal)
         {
-            listBoxDeals.Items.Add(new Result { Title = ticker, Description = current_deal.Low.ToString() });
+            listBoxDeals.Items.Add(new Result { Title = ticker, Description = current_deal.Profit_or_Loss.ToString() });
             list.Add(current_deal);
             tickers.Add(ticker);
         }

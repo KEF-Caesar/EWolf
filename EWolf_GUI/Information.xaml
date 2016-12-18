@@ -23,7 +23,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                 <StackPanel Orientation="Vertical">
-                    <TextBlock FontSize="12" Text="{Binding Date}"/>
+                    <TextBlock FontSize="12" Text="{Binding Title}"/>
                 </StackPanel>
             </DataTemplate>
             </ListBox.ItemTemplate>
@@ -32,7 +32,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock FontSize="12" Text="{Binding Date}"/>
+                        <TextBlock FontSize="12" Text="{Binding Title}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
