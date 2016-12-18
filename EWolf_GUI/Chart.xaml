@@ -12,6 +12,6 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <WindowsFormsHost Grid.Row="0" Margin="10" Name="chartarea"/>
-        <Button x:Name="closechart" Grid.Row="1" HorizontalAlignment="Right" Margin="0 0 10 10" Content="Close" Height="20" Width="60" Click="closechart_Click" FontSize="14"/>
+        <Button x:Name="closechart" Grid.Row="1" HorizontalAlignment="Right" Margin="0 0 10 10" Content="Close" Height="25" Width="60" Click="closechart_Click" FontSize="14"/>
     </Grid>
 </Window>

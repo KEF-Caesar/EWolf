@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using EWolf_Trading_Algorithms;
 using EWolf_Test;
+using EWolf_Input;
 
 namespace EWolf_GUI
 {
@@ -41,6 +30,9 @@ namespace EWolf_GUI
 		public MainWindow()
 		{            
             InitializeComponent();
+			IReadOnlyList<string> Tickers = new List<string> { "GAZP", "SBER", "LKOH", "MGNT", "NVTK",
+			"GMKN", "SNGS", "SNGSP", "ROSN", "VTBR", "TRNFP", "TATN", "ALRS", "MTSS", "MOEX", "CHMF" };
+			Repository_For_Candles RFC = new Repository_For_Candles(Tickers, "M1", 5);
 			Magic M = new Magic();
 			M.F.Deal_Event += Deals;
 			main = M.F;

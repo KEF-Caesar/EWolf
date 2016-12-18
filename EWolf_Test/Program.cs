@@ -2,10 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Timers;
-using EWolf_Input;
 using EWolf_Trading_Algorithms;
 
 namespace EWolf_Test
@@ -32,11 +28,8 @@ namespace EWolf_Test
 				if (C[i].Date_Time == _Close)
 					Price_Close = C[i].Close;
 			}
-			//Console.WriteLine("Deal:");
 			double PoL = Price_Close / Price_Open;
-			//Console.WriteLine(PoL);
 			string res = _Ticker + " " + Price_Open.ToString() + " " + Price_Close.ToString() + " " + PoL.ToString();
-			//Console.WriteLine(res);
 			Number_of_Deals += 1.0;
 			Total_PoL += PoL;
 			Total_Time += (_Close - _Open).TotalMinutes;
@@ -49,22 +42,11 @@ namespace EWolf_Test
 			Total_Time = 0;
 			Offline_Test Off_Test = new Offline_Test();
 			F.Deal_Event += Print_Deal;
-			for (int i = 1; i <= 20; i++)
+			for (int i = 1; i <= 50; i++)
 			{
-				/*
-				if (i % 50 == 0)
-					Console.WriteLine(i);
-				*/
-				//Console.ReadLine();
 				Off_Test.Update();
 				F.Iteration();
 			}
-			/*
-			Console.WriteLine("Number: " + Number_of_Deals);
-			Console.WriteLine("PoL: " + Total_PoL / Number_of_Deals);
-			Console.WriteLine("Time: " + Total_Time / Number_of_Deals);
-			Console.ReadLine();
-			*/
 		}
 
 		public Magic()
@@ -77,13 +59,6 @@ namespace EWolf_Test
 	{
 		static void Main(string[] args)
 		{
-			// Пример использования метода для получения свечей и их записи в файл
-			/*
-                Repository_For_Candles repo; 
-                IReadOnlyList<string> list = new List<string> { "GAZP","SBER", "LKOH", "MGNT", "NVTK",
-               "GMKN", "SNGS", "SNGSP", "ROSN", "VTBR", "TRNFP","TATN", "ALRS", "MTSS", "MOEX", "CHMF" };
-                repo = new Repository_For_Candles(list, "M1", 5);
-			*/
 			Magic M = new Magic();
 			M.Run();
 		}

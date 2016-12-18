@@ -120,7 +120,6 @@ namespace EWolf_Trading_Algorithms
 
 		public void Iteration()
 		{
-			//Repository_For_Candles RFC = new Repository_For_Candles(D.Tickers, "M1", 5);
 			D.Update();
 			Algo_Open_1();
 			Algo_Close_1();

@@ -43,7 +43,6 @@ namespace EWolf_Input
             _Days = days;
 			CodesForDictionary();
             GetCandles(_Formats, _Period, _Days);
-            
         }
         public async Task Timer1 ()
         {
@@ -75,7 +74,6 @@ namespace EWolf_Input
                        client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadStringCallback);                    
                     }                  
                 } 
-				
         }
 
         void DownloadStringCallback(object s, DownloadStringCompletedEventArgs e)
@@ -96,7 +94,7 @@ namespace EWolf_Input
             }
             if (str.Length > 4 && !str.StartsWith("Сист"))
             {
-                FileStream file = new FileStream("..\\..\\..\\EWolf_Data\\Data\\" + name + " " + Period + ".txt", FileMode.Create, FileAccess.ReadWrite);
+                FileStream file = new FileStream("..\\..\\..\\EWolf_Test\\Original_Data\\" + name + " " + Period + ".txt", FileMode.Create, FileAccess.ReadWrite);
                 using (StreamWriter sw = new StreamWriter(file, System.Text.Encoding.Default))
                 {
                     sw.Write(str);
@@ -108,7 +106,5 @@ namespace EWolf_Input
 
             }
         }
-        }
+	}
 }
-    
-

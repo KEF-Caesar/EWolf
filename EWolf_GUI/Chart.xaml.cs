@@ -63,7 +63,6 @@ namespace EWolf_GUI
 				{
 					max = candlestodraw[i].High;
 				}
-
 			}
 			min = min * 0.997;
 			max = max * 1.003;
@@ -82,10 +81,8 @@ namespace EWolf_GUI
 					chart.Series.FindByName("Candles").Points[chart.Series.FindByName("Candles").Points.Count - 1].Color = System.Drawing.Color.Tomato;
 				}
 				chart.Series.FindByName("Candles").Points[chart.Series.FindByName("Candles").Points.Count - 1].BorderWidth = 5;
-
 			}
 			chartarea.Child.Show();
-
 		}
 
 		private void closechart_Click(object sender, RoutedEventArgs e)
