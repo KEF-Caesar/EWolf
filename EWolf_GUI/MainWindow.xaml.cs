@@ -23,27 +23,18 @@ namespace EWolf_GUI
     {
         public string Title { get; set; }
         public string Description { get; set; }
-    }    
-
-    public class List_deals
-    {
-        public string Ticker;
-        public Deal Deal;
-    }
-
-    public class InformationW
-    {
-        public List<string> Heading;
-        public List<string> Value;
     }
 
     public partial class MainWindow : Window
 	{
         public Main main;
-       
+        List<Deal> list = new List<Deal> { };
+        List<string> tickers = new List<string> { };
         public void Deals(string ticker, Deal current_deal)
         {
             listBoxDeals.Items.Add(new Result { Title = ticker, Description = current_deal.Low.ToString() });
+            list.Add(current_deal);
+            tickers.Add(ticker);
         }
 
 		public MainWindow()
@@ -57,8 +48,8 @@ namespace EWolf_GUI
         {
             if (listBoxDeals.SelectedItem != null)
             {
-                string item = listBoxDeals.SelectedItem.ToString();                         
-                var information = new Information(item);
+                int item = listBoxDeals.SelectedIndex;                                         
+                var information = new Information(main, tickers[item], list[item]);
                     information.Show();
             }
         }                

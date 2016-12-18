@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using EWolf_Trading_Algorithms;
 
 namespace EWolf_GUI
 {
@@ -19,7 +20,7 @@ namespace EWolf_GUI
     /// </summary>
     public partial class Chart : Window
     {
-        public Chart()
+        public Chart(Main main, string ticker, Deal deal)
         {
             InitializeComponent();
         }
