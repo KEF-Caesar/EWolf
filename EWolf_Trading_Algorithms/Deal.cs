@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace EWolf_Trading_Algorithms
 {
-	class Deal
+	public class Deal
 	{
 		public List<Order> Orders;
+		public List<string> Headers;
+		public List<string> Values;
 		public double High { get; set; }
 		public double Low { get; set; }
 
 		public Deal()
 		{
 			Orders = new List<Order> { };
+			Headers = new List<string> { };
+			Values = new List<string> { };
 			Low = double.MaxValue;
 			High = double.MinValue;
 		}

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace EWolf_Trading_Algorithms
 {
-	class Stock
+	public class Stock
 	{
 		private string _Ticker_;
 		public string Ticker

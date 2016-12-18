@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace EWolf_Data
 {
 	public class Company
 	{
-		public IReadOnlyList<string> Time_Frames = new List<string> { "M1", "M5" };
+		public IReadOnlyList<string> Time_Frames = new List<string> { "M1" };
 		private string _Ticker_;
 		public string Ticker
 		{
